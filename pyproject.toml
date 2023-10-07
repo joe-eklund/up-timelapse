@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "unifi-timelapse"
+version = "0.1.0"
+description = "Create timelapses from Unifi cameras."
+authors = ["Joe Eklund <joe@eklund.family>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+click = "^8.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
