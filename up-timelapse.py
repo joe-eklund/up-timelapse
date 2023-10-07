@@ -38,8 +38,8 @@ def grab_screens(url, save_location):
         logging.debug(f'Validating url: {u}.')
         validated = validators.url(u)
         if not validated:
-            logging.critical(validated)
-            logging.critical(f'Unable to parse url: {u}. Please verify the url is correct.')
+            logging.error(validated)
+            logging.error(f'Unable to parse url: {u}. Please verify the url is correct.')
             continue
         data = requests.get(u, stream=True)
         camera_folder = os.path.join(save_location, urlparse(u).netloc)
