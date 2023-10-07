@@ -27,7 +27,7 @@ def cli(log_level):
 )
 @click.option(
     '--save-location',
-    default='./',
+    default=os.getcwd(),
     help='Folder to save snapshots to.'
 )
 def grab_screens(url, save_location):
@@ -38,7 +38,7 @@ def grab_screens(url, save_location):
         data = requests.get(u, stream=True)
         camera_folder = os.path.join(save_location, urlparse(u).netloc)
         create_output_dir(save_location=camera_folder)
-        ts = datetime.fromtimestamp(datetime.timestamp(datetime.now()))
+        ts = str(datetime.fromtimestamp(datetime.timestamp(datetime.now()))).replace(':', '-')
         screen_path = os.path.join(camera_folder, f'{ts}.jpg')
         logging.debug(f'Saving screen to {screen_path}.')
         with open(screen_path,'wb') as f:
